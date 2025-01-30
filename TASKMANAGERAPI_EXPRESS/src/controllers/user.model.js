@@ -25,8 +25,6 @@ export const createuser = async (req, res) => {
         msg: "No se recibio ningun dato",
       });
     }
-
-    console.log('el body', req.body)
     const newUser = await dbsql.insert(userTable).values(req.body);
 
     res.status(200).json({

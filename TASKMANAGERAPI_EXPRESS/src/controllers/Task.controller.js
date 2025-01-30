@@ -80,6 +80,22 @@ export const deleteTask = async (req, res) => {
     }
 }
 
+export const getTaskByUser = async (req, res) => {
+    try {
+        const response = await taskModel.find({ idUser: req.params.id });
+        res.status(200).json({
+            ok: true,
+            response
+        })
+    } catch (error) {
+        console.log('error:', error)
+        res.status(500).json({
+            ok: false,
+            msg: "Ocurrio un error inesperado"
+        })
+    }
+}
+
 
 const validaDataBody = (data) => {
     if (!data || Object.keys(data).length == 0) {

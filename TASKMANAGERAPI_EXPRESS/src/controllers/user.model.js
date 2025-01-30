@@ -68,11 +68,11 @@ export const updateUser = async (req, res) => {
 
 export const deleteUser = async (req, res) => {
   try {//recibir data por la query
-    const response= await dbsql.delete(userTable).where(eq(userTable.id,req.query.id));
-    console.log('response',response)
+    const response = await dbsql.delete(userTable).where(eq(userTable.id, req.query.id));
+    console.log('response', response)
     res.json({
       ok: true,
-      msg: response[0].affectedRows==0 ?"No se encontro el usuario a eliminar": "Usuario eliminado correctamente"
+      msg: response[0].affectedRows == 0 ? "No se encontro el usuario a eliminar" : "Usuario eliminado correctamente"
     })
 
   } catch (error) {

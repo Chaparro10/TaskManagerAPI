@@ -15,6 +15,6 @@ mongoose
 app.use("/api/user", userRoutes);
 app.use("/api/task", taskRoutes);
 
-app.listen(3000, () => {
+app.listen(3010, () => {
   console.log("Servidor ejecutando en el puerto 3000");
 });

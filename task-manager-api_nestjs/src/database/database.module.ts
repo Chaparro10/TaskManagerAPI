@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { MongoModule } from './mongo.module';
 
 @Module({
     imports:[
@@ -13,7 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
             password:process.env.DB_PASSWORD,
             database:process.env.DATABASE,
             autoLoadEntities:true
-        })
+        }),
     ],
     exports:[TypeOrmModule,DatabaseModule]
 })

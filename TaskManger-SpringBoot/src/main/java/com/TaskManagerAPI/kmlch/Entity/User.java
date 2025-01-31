@@ -9,15 +9,12 @@ import lombok.ToString;
 import java.util.Date;
 
 
-
-
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User {
 
     @Id
@@ -28,7 +25,4 @@ public class User {
     private String email;
     private int user;
     private int status;
-    private Date createdAt ;
-    private Date updatedAt ;
-
 }

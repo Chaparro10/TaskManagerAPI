@@ -1,4 +1,19 @@
+import { IsNumber, IsOptional, IsString } from 'class-validator';
 
-import { CreateTaskDto } from './create-task.dto';
+export class UpdateTaskDto {
+  @IsString()
+  @IsOptional()
+  title: string;
 
-export class UpdateTaskDto{}
+  @IsString()
+  @IsOptional()
+  description: string;
+
+  @IsNumber()
+  @IsOptional()
+  idUser: number;
+
+  @IsNumber()
+  @IsOptional()
+  status: number;
+}

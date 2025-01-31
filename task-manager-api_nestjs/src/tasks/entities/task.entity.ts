@@ -13,7 +13,7 @@ export class Task {
   description: string;
 
   @Prop({required:true})
-  isUser: number;
+  idUser: number;
 
   @Prop()
   status: number;

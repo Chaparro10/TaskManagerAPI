@@ -11,22 +11,23 @@ export class TasksService {
     constructor(@InjectModel(Task.name) private readonly taskModel: Model<TaskDocument>) {}
 
   create(createTaskDto: CreateTaskDto) {
-    return 'This action adds a new task';
+    return this.taskModel.create(createTaskDto);
   }
 
   findAll() {
     return this.taskModel.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} task`;
+  async findOne(id: string) {
+    const response= await this.taskModel.findOne({_id:id});
+    return response;
   }
 
-  update(id: number, updateTaskDto: UpdateTaskDto) {
-    return `This action updates a #${id} task`;
+  update(id: string, updateTaskDto: UpdateTaskDto) {
+    return this.taskModel.findOneAndUpdate({_id:id},updateTaskDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} task`;
+  remove(id: string) {
+    return this.taskModel.findByIdAndDelete({_id:id})
   }
 }

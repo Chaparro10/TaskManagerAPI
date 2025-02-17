@@ -6,8 +6,8 @@ const userTable = mysqlTable("User", {
   email: varchar({ length: 255 }).notNull(),
   user: varchar({ length: 255 }).notNull(),
   status: int().notNull(),
-  createdAt: timestamp("createdAt").defaultNow(), // Fecha con zona horaria
-  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow(), // Se actualiza automáticamente
+  // createdAt: timestamp("createdAt").defaultNow(), // Fecha con zona horaria
+  // updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow(), // Se actualiza automáticamente
 });
 
 export default userTable;

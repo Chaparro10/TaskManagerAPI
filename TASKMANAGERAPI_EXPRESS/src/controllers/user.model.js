@@ -1,12 +1,23 @@
 import { eq } from "drizzle-orm";
 import dbsql from "../database/database.js";
 import userTable from "../models/user.model.js";
+import client from "../index.js";
 
 
 export const getUser = async (req, res) => {
   try {
+
+      const userRedis= await client.get("users");
+      if(userRedis){
+        return res.json(JSON.parse(userRedis));
+      }
+
     const data = await dbsql.select().from(userTable);
-    console.log("data", data);
+
+    const saveResultInRedis= await client.set('users',JSON.stringify(data))
+
+
+    console.log('aqui')
     res.status(200).json(data);
   } catch (error) {
     console.log(error);

@@ -1,0 +1,10 @@
+
+config:
+  target: "http://localhost:3010"
+  phases:
+    - duration: 50
+      arrivalRate: 50000
+scenarios:
+  - flow:
+      - get:
+          url: "/api/user"

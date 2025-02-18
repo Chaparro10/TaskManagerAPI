@@ -6,3 +6,5 @@ npm install mongoose  ---Utilizar Mongo
 npm install drizzle-orm -- instalar orm a usar
 npm install mysql2 -- bd a usar 
 
+
+artillery run test.yml --correr la prueba 

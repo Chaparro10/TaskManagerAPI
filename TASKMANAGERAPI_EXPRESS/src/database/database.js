@@ -2,15 +2,16 @@
 
 import mysql from "mysql2";
 import { drizzle } from "drizzle-orm/mysql2";
+import { DB_HOST, DB_NAME, DB_PASS, DB_USER } from "../config";
 
 // 🟢 Crear el pool de conexión con MySQL2
 const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
+  host: DB_HOST,
+  user: DB_USER,
+  password: DB_PASS,
+  database: DB_NAME,
 });
- const dbsql = drizzle(pool);
+const dbsql = drizzle(pool);
 
 const testConnection = async () => {
   try {

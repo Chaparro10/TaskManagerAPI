@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
+import { MONGO_URI } from "../config";
 
-const mongoDB = process.env.MONGO_URI;
+const mongoDB = MONGO_URI;
 
 mongoose
   .connect(mongoDB)
@@ -8,4 +9,4 @@ mongoose
   .catch((err) => console.log("Ocurrio un error en Mongo:", err));
 
 
-  export default mongoose; 
+export default mongoose; 

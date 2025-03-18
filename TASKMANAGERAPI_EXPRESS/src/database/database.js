@@ -2,7 +2,7 @@
 
 import mysql from "mysql2";
 import { drizzle } from "drizzle-orm/mysql2";
-import { DB_HOST, DB_NAME, DB_PASS, DB_USER } from "../config";
+import { DB_HOST, DB_NAME, DB_PASS, DB_USER } from "../config.js";
 
 // 🟢 Crear el pool de conexión con MySQL2
 const pool = mysql.createPool({

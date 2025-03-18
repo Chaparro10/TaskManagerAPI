@@ -4,6 +4,7 @@ import userTable from "../models/user.model.js";
 import client from "../index.js";
 
 
+
 export const getUser = async (req, res) => {
   try {
 
@@ -14,7 +15,7 @@ export const getUser = async (req, res) => {
 
     const data = await dbsql.select().from(userTable);
 
-    const saveResultInRedis= await client.set('users',JSON.stringify(data))
+    const saveResultInRedis= await client.set('users',JSON.stringify(data),'EX', 3600);
 
 
     console.log('aqui')
